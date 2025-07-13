@@ -3,7 +3,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 
 # Config
@@ -13,7 +13,7 @@ graph_dir = os.path.join(base_dir, "graphs")
 os.makedirs(graph_dir, exist_ok=True)
 
 # Get today's date
-today = datetime.now()
+today = datetime.now()                    #- timedelta(days=1)      # Previous Days
 date_str = today.strftime("%Y-%m-%d")
 
 csv_path = os.path.join(log_dir, f"speedtest_{date_str}.csv")
