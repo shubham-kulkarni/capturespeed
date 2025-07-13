@@ -1,0 +1,11 @@
+/home/pi/capturespeed/
+│
+├── log_speedtest.sh              # Logging script
+├── generate_speed_graph.py       # Graph creation script
+│
+├── logs/                         # Daily CSV logs
+│   └── speedtest_2025-07-13.csv
+│
+└── graphs/                       # Graph images
+    └── speed_2025-07-13.png
+
