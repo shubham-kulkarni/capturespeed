@@ -1,0 +1,31 @@
+
+dir_structure:
+
+/home/pi/capturespeed/
+│
+├── log_speedtest.sh              # Logging script
+├── generate_speed_graph.py       # Graph creation script
+│
+├── logs/                         # Daily CSV logs
+│   └── speedtest_2025-07-13.csv
+│
+└── graphs/                       # Graph images
+    └── speed_2025-07-13.png
+
+-------------------------------------------------------------
+
+#Git Push Requires Username and Password
+https://betterstack.com/community/questions/git-push-requires-usernme-and-password/
+(Method 1: Using SSH Instead of HTTPS)
+
+-------------------------------------------------------------
+
+pi@rpi $ crontab -e
+"
+# m h  dom mon dow   command
+# Run log_speedtest.sh once after reboot, with 2-minute delay (network may not be ready immediately)
+@reboot sleep 120 && /home/pi/capturespeed/log_speedtest.sh && /home/pi/capturespeed/generate_speed_graph.py
+# Log internet speed every 30 minutes
+*/30 * * * * /home/pi/capturespeed/log_speedtest.sh && /home/pi/capturespeed/generate_speed_graph.py
+"
+
